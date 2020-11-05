@@ -2,6 +2,16 @@
 
 In the project, we are locating the defining area as scale and rotation invariant in the map image and return the coordinates of the matched location.
 
+## Table of Contents
+- [Template Matcher](#template-matcher)
+  - [Table of Contents](#table-of-contents)
+  - [Prerequisites](#prerequisites)
+  - [Help](#help)
+  - [Examples](#examples)
+    - [1. Template matching example](#1-template-matching-example)
+    - [2. Rotation invariant template matching example](#2-rotation-invariant-template-matching-example)
+  - [Referances](#referances)
+
 ## Prerequisites
 
 ```bash
@@ -26,6 +36,37 @@ optional arguments:
 
 ## Examples
 
+### 1. Template matching example
+
+```bash
+python template_matcher.py --template 'Small_area.png' --map 'StarMap.png' --show
+```
+**Template:**
+<p align="left">
+<img src="Small_area.png" width="100px"</img><br>
+</p>
+
+**Map:**
+<p align="left">
+<img src="StarMap.png" width="500px"</img><br>
+</p>
+
+**Result:**
+
+<p align="left">
+<img src="result1.png" width="500px"</img><br>
+</p>
+
+**Coordinates:**
+```bash
+[[[854.99304 149.9988 ]]
+ [[855.      262.988  ]]
+ [[968.0045  263.00714]]
+ [[968.01587 149.98811]]]
+```
+
+### 2. Rotation invariant template matching example
+
 ```bash
 python template_matcher.py --template 'Small_area_rotated.png' --map 'StarMap.png' --show
 ```
@@ -42,7 +83,7 @@ python template_matcher.py --template 'Small_area_rotated.png' --map 'StarMap.pn
 **Result:**
 
 <p align="left">
-<img src="result.png" width="500px"</img><br>
+<img src="result2.png" width="500px"</img><br>
 </p>
 
 **Coordinates:**
