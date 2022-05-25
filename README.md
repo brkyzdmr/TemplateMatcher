@@ -10,15 +10,21 @@ In the project, we are locating the defining area as scale and rotation invarian
   - [Examples](#examples)
     - [1. Template matching example](#1-template-matching-example)
     - [2. Rotation invariant template matching example](#2-rotation-invariant-template-matching-example)
+  - [Change Log](#change-log)
   - [Referances](#referances)
 
 ## Prerequisites
-
+- Quick install prerequisites
 ```bash
-python 3.7.9
-opencv 3.4.2
-numpy 1.19.2
-matplotlib 3.3.2
+pip install -r requirements.txt
+```
+
+- Package version list
+```bash
+python 3.7.13
+opencv 4.5.5.64 
+numpy 1.21.6
+matplotlib 3.5.2
 ```
 
 ## Help
@@ -94,7 +100,9 @@ python template_matcher.py --template 'Small_area_rotated.png' --map 'StarMap.pn
  [[552.31104 561.55725]]]
 ```
 
-
+## Change Log
+- Project upgraded ```opencv 3.4.2``` to ```opencv 4.5.5.64```
+- Added quick installation for prerequisites
 
 ## Referances
 

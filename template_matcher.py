@@ -40,7 +40,7 @@ def get_matched_coordinates(temp_img, map_img):
     """
 
     # initiate SIFT detector
-    sift = cv2.xfeatures2d.SIFT_create()
+    sift = cv2.SIFT_create()
 
     # find the keypoints and descriptors with SIFT
     kp1, des1 = sift.detectAndCompute(temp_img, None)
