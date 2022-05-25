@@ -1,3 +1,4 @@
+from turtle import color
 import numpy as np
 import cv2
 import argparse
@@ -75,7 +76,7 @@ def get_matched_coordinates(temp_img, map_img):
         pts = np.float32([[0, 0], [0, h-1], [w-1, h-1],
                           [w-1, 0]]).reshape(-1, 1, 2)
         dst = cv2.perspectiveTransform(pts, M)  # matched coordinates
-
+        
         map_img = cv2.polylines(
             map_img, [np.int32(dst)], True, 255, 3, cv2.LINE_AA)
 
@@ -98,7 +99,10 @@ def get_matched_coordinates(temp_img, map_img):
         plt.imshow(img3, 'gray'), plt.show()
 
     # result image path
-    cv2.imwrite(os.path.join(args.save_dir, 'result.png'), img3)
+    if(args.save_dir != ''):
+        cv2.imwrite(os.path.join(args.save_dir), img3)
+    else:
+        cv2.imwrite(os.path.join(args.save_dir, 'output.jpg'), img3)
 
     return dst
 
@@ -117,4 +121,3 @@ if __name__ == "__main__":
     coords = get_matched_coordinates(temp_img_eq, map_img_eq)
 
     print(coords)
-    print(type(coords))
