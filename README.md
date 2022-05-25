@@ -1,15 +1,20 @@
 # Template Matcher
 
-In the project, we are locating the defining area as scale and rotation invariant in the map image and return the coordinates of the matched location.
+In the project, we are locating the defining area as `scale` and `rotation invariant` in the map image using `SIFT` algorithm and return the coordinates of the matched location.
+
+## Why SIFT (Scale Invarient Feature Transform)?
+There are tons of feature detection algorithm such as `SIFT`, `SURF`, `FAST`, `BRISK`, `ORB`, etc. Acording to tests, `SIFT` has low error-rate and better accuracy comparing to others. But, it tooks too much time to execute.
+
 
 ## Table of Contents
 - [Template Matcher](#template-matcher)
+  - [Why SIFT (Scale Invarient Feature Transform)?](#why-sift-scale-invarient-feature-transform)
   - [Table of Contents](#table-of-contents)
   - [Prerequisites](#prerequisites)
   - [Help](#help)
   - [Examples](#examples)
-    - [1. Template matching example](#1-template-matching-example)
-    - [2. Rotation invariant template matching example](#2-rotation-invariant-template-matching-example)
+    - [1. Satellite Map Template Matching](#1-satellite-map-template-matching)
+    - [2. Star Map Template Matching](#2-star-map-template-matching)
   - [Change Log](#change-log)
   - [Referances](#referances)
 
@@ -42,62 +47,64 @@ optional arguments:
 
 ## Examples
 
-### 1. Template matching example
+### 1. Satellite Map Template Matching
+Finding the exact location and coordinates of a `rotated` part of the satellite map in the satellite map.
 
 ```bash
-python template_matcher.py --template 'Small_area.png' --map 'StarMap.png' --show
+python template_matcher.py --template 'examples\satellite-map\eminonu-satellite-map.jpg' --map 'examples\satellite-map\istanbul-satellite-map.jpg' --save-dir 'examples\satellite-map\output-satellite-map.jpg'
 ```
 **Template:**
 <p align="left">
-<img src="Small_area.png" width="100px"</img><br>
+<img src="examples\satellite-map\eminonu-satellite-map.jpg" width="200px"</img><br>
 </p>
 
 **Map:**
 <p align="left">
-<img src="StarMap.png" width="500px"</img><br>
+<img src="examples\satellite-map\istanbul-satellite-map.jpg" width="500px"</img><br>
 </p>
 
 **Result:**
 
 <p align="left">
-<img src="result1.png" width="500px"</img><br>
+<img src="examples\satellite-map\output-satellite-map.jpg" width="500px"</img><br>
 </p>
 
 **Coordinates:**
 ```bash
-[[[854.99304 149.9988 ]]
- [[855.      262.988  ]]
- [[968.0045  263.00714]]
- [[968.01587 149.98811]]]
+[[[831.315   812.50635]]
+ [[794.627   748.854  ]]
+ [[728.32965 786.2521 ]]
+ [[765.0782  850.3996 ]]]
 ```
 
-### 2. Rotation invariant template matching example
+### 2. Star Map Template Matching
+Finding the exact location and coordinates of `color overlayed`, `noised`, and `rotated` a part of the star map in the star map.
 
 ```bash
-python template_matcher.py --template 'Small_area_rotated.png' --map 'StarMap.png' --show
+python template_matcher.py --template 'examples\star-map\area-on-the-sky.jpg' --map 'examples\star-map\star-map.jpg' --show
 ```
 **Template:**
 <p align="left">
-<img src="Small_area_rotated.png" width="100px"</img><br>
+<img src="examples\star-map\area-on-the-sky.jpg" width="200px"</img><br>
 </p>
 
 **Map:**
 <p align="left">
-<img src="StarMap.png" width="500px"</img><br>
+<img src="examples\star-map\star-map.jpg" width="500px"</img><br>
 </p>
 
 **Result:**
 
 <p align="left">
-<img src="result2.png" width="500px"</img><br>
+<img src="examples\star-map\output-star-map.jpg" width="500px"</img><br>
 </p>
 
 **Coordinates:**
 ```bash
-[[[420.5984  639.69196]]
- [[498.93964 771.2211 ]]
- [[630.31586 693.02856]]
- [[552.31104 561.55725]]]
+[[[390.81454 742.3058 ]]
+ [[513.85657 933.92474]]
+ [[755.19464 778.7366 ]]
+ [[632.2348  587.18396]]]
 ```
 
 ## Change Log
@@ -114,3 +121,4 @@ python template_matcher.py --template 'Small_area_rotated.png' --map 'StarMap.pn
 3. [Template Matching](https://docs.opencv.org/master/d4/dc6/tutorial_py_template_matching.html)
 
 4. [Histogram Equalization](https://docs.opencv.org/master/d5/daf/tutorial_py_histogram_equalization.html)
+5. [A Review on Image Feature Detection and Description](https://www.koreascience.or.kr/article/CFKO201629368424723.pdf)
