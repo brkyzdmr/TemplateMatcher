@@ -14,7 +14,8 @@ There are tons of feature detection algorithm such as `SIFT`, `SURF`, `FAST`, `B
   - [Help](#help)
   - [Examples](#examples)
     - [1. Satellite Map Template Matching](#1-satellite-map-template-matching)
-    - [2. Star Map Template Matching](#2-star-map-template-matching)
+    - [2. Finding Maiden's Tower in Istanbul Map](#2-finding-maidens-tower-in-istanbul-map)
+    - [3. Star Map Template Matching](#3-star-map-template-matching)
   - [Change Log](#change-log)
   - [Referances](#referances)
 
@@ -77,7 +78,37 @@ python template_matcher.py --template 'examples\satellite-map\eminonu-satellite-
  [[765.0782  850.3996 ]]]
 ```
 
-### 2. Star Map Template Matching
+### 2. Finding Maiden's Tower in Istanbul Map
+Finding the exact location and coordinates of a `rotated` part of the satellite map in the satellite map.
+
+```bash
+python template_matcher.py --template 'examples\maidens-tower\maidens-tower.jpg' --map 'examples\maidens-tower\istanbul-map.jpg' --save-dir 'examples\maidens-tower\output-maidens-tower-location.jpg'
+```
+**Template:**
+<p align="left">
+<img src="examples\maidens-tower\maidens-tower.jpg" width="200px"</img><br>
+</p>
+
+**Map:**
+<p align="left">
+<img src="examples\maidens-tower\istanbul-map.jpg" width="500px"</img><br>
+</p>
+
+**Result:**
+
+<p align="left">
+<img src="examples\maidens-tower\output-maidens-tower-location.jpg" width="500px"</img><br>
+</p>
+
+**Coordinates:**
+```bash
+[[[2538.456  1709.4415]]
+ [[2531.6711 1715.0646]]
+ [[2558.1897 1709.6547]]
+ [[2533.1726 1710.5573]]]
+```
+
+### 3. Star Map Template Matching
 Finding the exact location and coordinates of `color overlayed`, `noised`, and `rotated` a part of the star map in the star map.
 
 ```bash
